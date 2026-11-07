@@ -13,7 +13,7 @@ Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres
 | 1. Setup: repo, Next.js app, Vercel, Supabase tables | Done |
 | 2. Accounts | Done |
 | 3. Categories | Done |
-| 4. Timer | Not started |
+| 4. Timer | Done |
 | 5. Time log | Not started |
 | 6. Day timeline | Not started |
 | 7. Polish and test | Not started |
@@ -29,7 +29,7 @@ Requires Node.js 20 or newer.
    ```
 
 2. Create a free project at [supabase.com](https://supabase.com).
-3. In Supabase, open **SQL Editor → New query**, paste the contents of `supabase/migrations/0001_init.sql`, and run it. This creates the `profiles`, `categories` and `time_entries` tables with row-level security.
+3. In Supabase, open **SQL Editor → New query**, and run each file in `supabase/migrations/` in order (`0001_init.sql`, then `0002_countdown_seconds.sql`). This creates the `profiles`, `categories` and `time_entries` tables with row-level security.
 4. Copy the env template and fill in your project URL and publishable key from **Project Settings → API**:
 
    ```bash
@@ -61,7 +61,7 @@ src/
     login/, signup/       Log in and sign up
     auth/                 Auth server actions + email confirmation callback
     (app)/                Logged-in pages, protected by src/proxy.ts
-      dashboard/          Timer (milestone 4)
+      dashboard/          Timer: stopwatch, countdown, pause/resume
       categories/         Create, edit, archive categories
       timeline/           Time log + day timeline (milestones 5–6)
   components/             Shared UI
@@ -75,6 +75,6 @@ supabase/migrations/      Database schema (run in the Supabase SQL Editor)
 ## Data model
 
 - **categories**: name, description, color, archived flag.
-- **time_entries**: category, `started_at`, `ended_at` (null while a timer runs), mode (`stopwatch` or `countdown`), planned minutes, note.
+- **time_entries**: category, `started_at`, `ended_at` (null while a timer runs), mode (`stopwatch` or `countdown`), planned seconds (countdowns), note.
 
 The database itself blocks overlapping entries and allows only one running timer per user.

@@ -1,9 +1,12 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Placeholder } from "@/components/Placeholder";
+import { TimerPanel } from "@/components/timer/TimerPanel";
 import { createClient } from "@/lib/supabase/server";
 import { getSessionUser } from "@/lib/supabase/user";
 
-/** "Welcome back, Sam" — read from the profiles table to prove the DB link works. */
+export const metadata: Metadata = { title: "Timer · Blockwise" };
+
+/** "Welcome back, Sam" — read from the profiles table. */
 async function Greeting() {
   const user = await getSessionUser();
   if (!user) return null;
@@ -16,25 +19,31 @@ async function Greeting() {
     .maybeSingle();
 
   const name = profile?.display_name ?? user.email?.split("@")[0] ?? "there";
-  return <p className="text-lg">Welcome back, {name}.</p>;
+  return <h1 className="text-2xl font-semibold">Welcome back, {name}.</h1>;
+}
+
+async function Timer() {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("categories")
+    .select("id, name, color, description")
+    .eq("archived", false)
+    .order("created_at", { ascending: true });
+
+  return <TimerPanel categories={data ?? []} />;
 }
 
 export default function DashboardPage() {
   return (
     <>
-      <Suspense fallback={<p className="text-lg text-muted">Welcome back…</p>}>
+      <Suspense fallback={<h1 className="text-2xl font-semibold text-muted">Welcome back…</h1>}>
         <Greeting />
       </Suspense>
-      <Placeholder
-        title="Timer"
-        milestone="milestone 4 (Timer)"
-        items={[
-          "Pick a category and start a stopwatch in one click",
-          "Countdown presets: 15, 25, 50 minutes, or custom",
-          "Running timer survives a refresh (saved as an open time entry)",
-          "Only one timer runs at a time",
-        ]}
-      />
+      <Suspense
+        fallback={<div className="h-72 animate-pulse rounded-2xl border border-border bg-surface" aria-label="Loading timer" />}
+      >
+        <Timer />
+      </Suspense>
     </>
   );
 }

@@ -1,4 +1,4 @@
-// Row shapes matching supabase/migrations/0001_init.sql.
+// Row shapes matching supabase/migrations/ (0001_init.sql + later changes).
 
 export type Profile = {
   id: string;
@@ -28,7 +28,8 @@ export type TimeEntry = {
   /** Null while the session is still running. */
   ended_at: string | null;
   mode: TimerMode;
-  planned_minutes: number | null;
+  /** Countdown length in seconds (null for stopwatch). See migration 0002. */
+  planned_seconds: number | null;
   note: string | null;
   created_at: string;
 };
