@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { Logo } from "@/components/Logo";
 import { SetupNotice } from "@/components/SetupNotice";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderTimer } from "@/components/timer/HeaderTimer";
 import { TimerProvider } from "@/components/timer/TimerProvider";
@@ -39,6 +40,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
           </ul>
           <div className="ml-auto flex items-center gap-3">
             <HeaderTimer />
+            <ThemeSwitch />
             <Suspense fallback={null}>
               <UserMenu />
             </Suspense>

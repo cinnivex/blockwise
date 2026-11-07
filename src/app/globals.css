@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Tailwind's dark: variant follows the same rule as the palette below. */
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+  &:where([data-theme="dark"] *) {
+    @slot;
+  }
+}
+
 /* "Calm focus" brand: warm paper, earthy accents, serif headings, soft shapes.
    All text pairs below pass WCAG AA (4.5:1) contrast. */
 :root {
@@ -10,10 +22,13 @@
   --border: #e6ddd1;
   --accent: #a24f30; /* clay */
   --accent-foreground: #ffffff;
+  color-scheme: light;
 }
 
+/* Dark palette. Applies when the device prefers dark (unless the viewer picked
+   Light), or whenever the viewer picked Dark. See ThemeSwitch. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #1d1915; /* warm charcoal */
     --surface: #27221d;
     --foreground: #f3ece2;
@@ -21,7 +36,19 @@
     --border: #3a332c;
     --accent: #e08a66;
     --accent-foreground: #1d1915;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --background: #1d1915; /* warm charcoal */
+  --surface: #27221d;
+  --foreground: #f3ece2;
+  --muted: #b3a698;
+  --border: #3a332c;
+  --accent: #e08a66;
+  --accent-foreground: #1d1915;
+  color-scheme: dark;
 }
 
 @theme inline {

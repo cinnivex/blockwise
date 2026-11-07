@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { SetupNotice } from "@/components/SetupNotice";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
 
 // Sample blocks for the hero illustration (hour offsets from 8 AM).
 const SAMPLE_DAY = [
@@ -16,9 +17,12 @@ export default function Home() {
     <div className="flex flex-1 flex-col">
       <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-5 sm:px-6">
         <Logo />
-        <Link href="/login" className="text-sm font-medium text-muted hover:text-foreground">
-          Log in
-        </Link>
+        <div className="flex items-center gap-4">
+          <ThemeSwitch />
+          <Link href="/login" className="text-sm font-medium text-muted hover:text-foreground">
+            Log in
+          </Link>
+        </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-10 px-4 py-8 sm:px-6 sm:py-16">
