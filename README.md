@@ -12,7 +12,7 @@ Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres
 | --- | --- |
 | 1. Setup: repo, Next.js app, Vercel, Supabase tables | Done |
 | 2. Accounts | Done |
-| 3. Categories | Not started |
+| 3. Categories | Done |
 | 4. Timer | Not started |
 | 5. Time log | Not started |
 | 6. Day timeline | Not started |
@@ -62,7 +62,7 @@ src/
     auth/                 Auth server actions + email confirmation callback
     (app)/                Logged-in pages, protected by src/proxy.ts
       dashboard/          Timer (milestone 4)
-      categories/         Categories (milestone 3)
+      categories/         Create, edit, archive categories
       timeline/           Time log + day timeline (milestones 5–6)
   components/             Shared UI
   lib/
