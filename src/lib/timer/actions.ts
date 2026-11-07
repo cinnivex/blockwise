@@ -65,7 +65,7 @@ async function loadRunning(): Promise<RunningTimer | null> {
 
 /** Current timer, after closing any countdown that ran out while the tab was closed. */
 export async function getTimerState(): Promise<TimerResult> {
-  if (!(await getSessionUser())) return fail("Not logged in.");
+  if (!(await getSessionUser())) return fail("Your session expired. Log in again.");
 
   const running = await loadRunning();
   if (running) {

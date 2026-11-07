@@ -16,7 +16,7 @@ Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres
 | 4. Timer | Done |
 | 5. Time log | Done |
 | 6. Day timeline | Done |
-| 7. Polish and test | Not started |
+| 7. Polish and test | Polish done; user testing in progress |
 
 ## Local setup
 

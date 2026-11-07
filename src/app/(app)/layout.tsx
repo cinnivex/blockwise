@@ -16,6 +16,12 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
   return (
     <TimerProvider>
     <div className="flex flex-1 flex-col">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-3 focus:py-2 focus:text-accent-foreground"
+      >
+        Skip to content
+      </a>
       <header className="border-b border-border bg-surface">
         <nav className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
           <Link href="/" className="font-semibold">
@@ -38,7 +44,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
           </div>
         </nav>
       </header>
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
+      <main id="main" className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
         <SetupNotice />
         {children}
       </main>

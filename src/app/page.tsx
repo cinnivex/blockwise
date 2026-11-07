@@ -4,10 +4,11 @@ import { SetupNotice } from "@/components/SetupNotice";
 // Sample blocks for the hero illustration (hour offsets from 8:00).
 const SAMPLE_DAY = [
   { label: "Deep work", start: 1, hours: 2, color: "#4f46e5" },
-  { label: "Email", start: 3.25, hours: 0.5, color: "#f59e0b" },
-  { label: "Studying", start: 5, hours: 1.5, color: "#10b981" },
-  { label: "Side project", start: 7, hours: 1, color: "#ec4899" },
+  { label: "Email", start: 3.25, hours: 0.5, color: "#b45309" },
+  { label: "Studying", start: 5, hours: 1.5, color: "#15803d" },
+  { label: "Side project", start: 7, hours: 1, color: "#be185d" },
 ];
+const hourLabel = (h: number) => `${h % 12 === 0 ? 12 : h % 12} ${h < 12 ? "AM" : "PM"}`;
 
 export default function Home() {
   return (
@@ -51,13 +52,13 @@ export default function Home() {
                 className="absolute inset-x-0 flex items-start gap-3 border-t border-border text-xs text-muted"
                 style={{ top: `${(i / 9) * 100}%` }}
               >
-                <span className="-mt-2 w-10 bg-surface">{8 + i}:00</span>
+                <span className="-mt-2 w-12 bg-surface">{hourLabel(8 + i)}</span>
               </div>
             ))}
             {SAMPLE_DAY.map((b) => (
               <div
                 key={b.label}
-                className="absolute left-14 right-1 rounded-md px-2 py-1 text-xs font-medium text-white"
+                className="absolute left-16 right-1 overflow-hidden rounded-md px-2 py-1 text-xs font-medium text-white"
                 style={{
                   top: `${(b.start / 9) * 100}%`,
                   height: `${(b.hours / 9) * 100}%`,
