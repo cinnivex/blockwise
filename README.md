@@ -11,7 +11,7 @@ Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres
 | Milestone | Status |
 | --- | --- |
 | 1. Setup: repo, Next.js app, Vercel, Supabase tables | Done |
-| 2. Accounts | Not started |
+| 2. Accounts | Done |
 | 3. Categories | Not started |
 | 4. Timer | Not started |
 | 5. Time log | Not started |
@@ -58,7 +58,8 @@ Until step 4 is done the app still runs, showing a "Supabase isn't connected yet
 src/
   app/
     page.tsx              Landing page
-    login/                Log in (milestone 2)
+    login/, signup/       Log in and sign up
+    auth/                 Auth server actions + email confirmation callback
     (app)/                Logged-in pages, protected by src/proxy.ts
       dashboard/          Timer (milestone 4)
       categories/         Categories (milestone 3)

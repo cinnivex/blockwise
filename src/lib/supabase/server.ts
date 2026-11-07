@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 import { supabaseKey, supabaseUrl } from "./env";
 
 /**
@@ -7,6 +8,9 @@ import { supabaseKey, supabaseUrl } from "./env";
  * Create a new one per request; never share it across requests.
  */
 export async function createClient() {
+  // Supabase checks token expiry with the clock (Date.now), so mark this as
+  // request-time work; otherwise Cache Components flags it during prerender.
+  await connection();
   const cookieStore = await cookies();
 
   return createServerClient(supabaseUrl, supabaseKey, {

@@ -25,16 +25,16 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/login"
+              href="/signup"
               className="rounded-lg bg-accent px-5 py-2.5 font-medium text-accent-foreground hover:opacity-90"
             >
               Start your first block
             </Link>
             <Link
-              href="/dashboard"
+              href="/login"
               className="rounded-lg border border-border px-5 py-2.5 font-medium hover:bg-surface"
             >
-              Open dashboard
+              Log in
             </Link>
           </div>
         </section>

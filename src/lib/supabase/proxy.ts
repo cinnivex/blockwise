@@ -4,6 +4,8 @@ import { isSupabaseConfigured, supabaseKey, supabaseUrl } from "./env";
 
 /** Pages that require a logged-in user. */
 const PROTECTED_PREFIXES = ["/dashboard", "/categories", "/timeline"];
+/** Pages a logged-in user doesn't need; they go to the dashboard instead. */
+const GUEST_ONLY = ["/login", "/signup"];
 
 /**
  * Refreshes the Supabase auth session cookie on each request and
@@ -45,6 +47,13 @@ export async function updateSession(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     url.searchParams.set("next", path);
+    return NextResponse.redirect(url);
+  }
+
+  if (isLoggedIn && GUEST_ONLY.includes(path)) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/dashboard";
+    url.search = "";
     return NextResponse.redirect(url);
   }
 
