@@ -4,11 +4,13 @@ A productivity tracker: create reusable, color-coded categories, time your work 
 
 Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres + Auth), deployed on Vercel.
 
+**Live site:** https://blockwise-three.vercel.app
+
 ## Project status
 
 | Milestone | Status |
 | --- | --- |
-| 1. Setup: repo, Next.js app, Vercel, Supabase tables | In progress |
+| 1. Setup: repo, Next.js app, Vercel, Supabase tables | Done |
 | 2. Accounts | Not started |
 | 3. Categories | Not started |
 | 4. Timer | Not started |
