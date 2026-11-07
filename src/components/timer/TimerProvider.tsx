@@ -46,6 +46,8 @@ type TimerContextValue = {
   resume: () => Promise<void>;
   stop: () => Promise<void>;
   dismissPaused: () => void;
+  /** Re-read the timer from the server (e.g. after editing entries elsewhere). */
+  reload: () => Promise<void>;
 };
 
 const TimerContext = createContext<TimerContextValue | null>(null);
@@ -214,6 +216,14 @@ export function TimerProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const reload = async () => {
+    try {
+      apply(await getTimerState());
+    } catch {
+      // Keep showing what we have; the next action will surface any error.
+    }
+  };
+
   const dismissPaused = () => {
     setCarryMs(0);
     setCountdownTotalMs(null);
@@ -255,7 +265,7 @@ export function TimerProvider({ children }: { children: ReactNode }) {
 
   // Rebuilt each render (the timer ticks 4×/s), so handlers never go stale.
   const value: TimerContextValue = {
-    ready, busy, error, running, paused, displayMs, progress, start, pause, resume, stop, dismissPaused,
+    ready, busy, error, running, paused, displayMs, progress, start, pause, resume, stop, dismissPaused, reload,
   };
 
   return <TimerContext value={value}>{children}</TimerContext>;
