@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
+/* "Calm focus" brand: warm paper, earthy accents, serif headings, soft shapes.
+   All text pairs below pass WCAG AA (4.5:1) contrast. */
 :root {
-  --background: #fafaf9;
-  --surface: #ffffff;
-  --foreground: #1c1917;
-  --muted: #78716c;
-  --border: #e7e5e4;
-  --accent: #4f46e5;
+  --background: #f6f1ea; /* warm paper */
+  --surface: #fffdf9;
+  --foreground: #3b3128; /* deep brown-black */
+  --muted: #6f6257;
+  --border: #e6ddd1;
+  --accent: #a24f30; /* clay */
   --accent-foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0a09;
-    --surface: #1c1917;
-    --foreground: #f5f5f4;
-    --muted: #a8a29e;
-    --border: #292524;
-    --accent: #818cf8;
-    --accent-foreground: #0c0a09;
+    --background: #1d1915; /* warm charcoal */
+    --surface: #27221d;
+    --foreground: #f3ece2;
+    --muted: #b3a698;
+    --border: #3a332c;
+    --accent: #e08a66;
+    --accent-foreground: #1d1915;
   }
 }
 
@@ -32,11 +34,28 @@
   --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+}
+
+/* Softer corners everywhere: every rounded-* utility gets a little rounder. */
+@theme {
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Serif headings carry the brand's voice; body text stays a clean sans. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 /* One consistent keyboard focus ring across buttons, links and inputs. */

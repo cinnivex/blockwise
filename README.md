@@ -1,6 +1,6 @@
 # Blockwise
 
-A productivity tracker: create reusable, color-coded categories, time your work with a stopwatch or countdown, and see your day as a timeline of colored blocks.
+Small blocks add up. A calm productivity tracker: create reusable, color-coded categories, time your work with a stopwatch or countdown, and see your day as a timeline of colored blocks.
 
 Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres + Auth), deployed on Vercel.
 
@@ -29,7 +29,7 @@ Requires Node.js 20 or newer.
    ```
 
 2. Create a free project at [supabase.com](https://supabase.com).
-3. In Supabase, open **SQL Editor → New query**, and run each file in `supabase/migrations/` in order (`0001_init.sql`, then `0002_countdown_seconds.sql`). This creates the `profiles`, `categories` and `time_entries` tables with row-level security.
+3. In Supabase, open **SQL Editor → New query**, and run each file in `supabase/migrations/` in order (`0001_init.sql`, `0002_countdown_seconds.sql`, then `0003_calm_focus_palette.sql`). This creates the `profiles`, `categories` and `time_entries` tables with row-level security.
 4. Copy the env template and fill in your project URL and publishable key from **Project Settings → API**:
 
    ```bash

@@ -26,9 +26,9 @@ function saveLastCategory(id: string) {
 }
 
 const primaryButton =
-  "rounded-xl bg-accent px-6 py-3 text-base font-semibold text-accent-foreground hover:opacity-90 disabled:opacity-50";
+  "rounded-full bg-accent px-6 py-3 text-base font-semibold text-accent-foreground hover:opacity-90 disabled:opacity-50";
 const secondaryButton =
-  "rounded-xl border border-border px-6 py-3 text-base font-semibold hover:bg-background disabled:opacity-50";
+  "rounded-full border border-border px-6 py-3 text-base font-semibold hover:bg-background disabled:opacity-50";
 
 export function TimerPanel({ categories }: { categories: Pick<Category, "id" | "name" | "color" | "description">[] }) {
   const timer = useTimer();

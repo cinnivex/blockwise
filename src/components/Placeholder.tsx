@@ -10,7 +10,7 @@ export function Placeholder({
 }) {
   return (
     <section className="flex flex-col gap-4">
-      <h1 className="text-2xl font-semibold">{title}</h1>
+      <h1 className="text-2xl font-medium">{title}</h1>
       <div className="rounded-xl border border-dashed border-border bg-surface p-6">
         <p className="text-sm font-medium text-muted">Coming in {milestone}</p>
         <ul className="mt-3 list-disc pl-5 text-sm">

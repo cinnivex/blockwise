@@ -92,7 +92,7 @@ export function DayTimeline({ day, entries }: Props) {
                     aria-pressed={isSelected}
                     aria-label={`${e.category.name}, ${timeRange}, ${duration}${p.running ? ", running" : ""}${e.note ? `. ${e.note}` : ""}`}
                     title={`${e.category.name} · ${timeRange} · ${duration}`}
-                    className={`absolute left-1 right-1 overflow-hidden rounded-md px-2 text-left text-xs text-white shadow-sm transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground ${
+                    className={`absolute left-1 right-1 overflow-hidden rounded-lg px-2.5 text-left text-xs text-white shadow-sm transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground ${
                       isSelected ? "ring-2 ring-foreground ring-offset-2 ring-offset-surface" : ""
                     } ${p.running ? "animate-pulse outline-2 -outline-offset-2 outline-dashed outline-white/70" : ""}`}
                     style={{ top: y(p.startH), height, backgroundColor: e.category.color }}

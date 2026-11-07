@@ -133,7 +133,7 @@ export function EntryForm({ day, categories, entry, onSaved, onCancel }: Props) 
         <button
           type="submit"
           disabled={saving || options.length === 0}
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90 disabled:opacity-50"
+          className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90 disabled:opacity-50"
         >
           {saving ? "Saving…" : entry ? "Save changes" : "Add entry"}
         </button>

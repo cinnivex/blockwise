@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { Logo } from "@/components/Logo";
 import { SetupNotice } from "@/components/SetupNotice";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderTimer } from "@/components/timer/HeaderTimer";
@@ -24,8 +25,8 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
       </a>
       <header className="border-b border-border bg-surface">
         <nav className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
-          <Link href="/" className="font-semibold">
-            Blockwise
+          <Link href="/" aria-label="Blockwise home">
+            <Logo size={20} />
           </Link>
           <ul className="flex gap-4 text-sm">
             {NAV.map((item) => (

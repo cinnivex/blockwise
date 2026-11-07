@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { AuthForm } from "./AuthForm";
+import { Logo } from "./Logo";
 import { SetupNotice } from "./SetupNotice";
 
 /** Shared layout for the login and sign-up pages. */
@@ -9,11 +10,11 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
     <main className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-6 px-4 py-12">
       <SetupNotice />
       <div>
-        <Link href="/" className="text-sm text-muted hover:underline">
-          &larr; Blockwise
+        <Link href="/" aria-label="Blockwise home">
+          <Logo />
         </Link>
-        <h1 className="mt-2 text-2xl font-semibold">
-          {mode === "signup" ? "Create your account" : "Log in"}
+        <h1 className="mt-6 text-3xl font-medium">
+          {mode === "signup" ? "Start your first block" : "Welcome back"}
         </h1>
       </div>
       {/* The form reads the URL (?next=, ?error=), so it renders at request time. */}

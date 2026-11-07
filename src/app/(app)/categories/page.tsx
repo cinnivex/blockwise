@@ -80,7 +80,7 @@ export default function CategoriesPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-2xl font-semibold">Categories</h1>
+        <h1 className="text-2xl font-medium">Categories</h1>
         <p className="mt-1 text-sm text-muted">
           Set these up once and reuse them every time you start the timer. Archiving hides a
           category from the timer but keeps its past time and color.

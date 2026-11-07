@@ -19,7 +19,7 @@ async function Greeting() {
     .maybeSingle();
 
   const name = profile?.display_name ?? user.email?.split("@")[0] ?? "there";
-  return <h1 className="text-2xl font-semibold">Welcome back, {name}.</h1>;
+  return <h1 className="text-2xl font-medium">Welcome back, {name}.</h1>;
 }
 
 async function Timer() {
@@ -36,7 +36,7 @@ async function Timer() {
 export default function DashboardPage() {
   return (
     <>
-      <Suspense fallback={<h1 className="text-2xl font-semibold text-muted">Welcome back…</h1>}>
+      <Suspense fallback={<h1 className="text-2xl font-medium text-muted">Welcome back…</h1>}>
         <Greeting />
       </Suspense>
       <Suspense

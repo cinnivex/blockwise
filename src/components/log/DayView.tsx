@@ -85,7 +85,7 @@ export function DayView({ categories }: { categories: CategoryOption[] }) {
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold">{dayLabel(day)}</h1>
+          <h1 className="text-2xl font-medium">{dayLabel(day)}</h1>
           <p className="text-sm text-muted" aria-live="polite">
             {loading ? "Loading…" : `${formatHoursMinutes(totalMs)} tracked${hasRunning ? " (plus the running timer)" : ""}`}
           </p>
@@ -140,7 +140,7 @@ export function DayView({ categories }: { categories: CategoryOption[] }) {
             <button
               type="button"
               onClick={() => setAdding(true)}
-              className="rounded-lg bg-accent px-3 py-1.5 text-sm font-medium text-accent-foreground hover:opacity-90"
+              className="rounded-full bg-accent px-3 py-1.5 text-sm font-medium text-accent-foreground hover:opacity-90"
             >
               + Add entry
             </button>

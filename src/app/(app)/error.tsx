@@ -10,14 +10,14 @@ export default function AppError({ error, retry }: { error: unknown; retry: () =
 
   return (
     <section className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-surface px-6 py-12 text-center">
-      <h1 className="text-xl font-semibold">Something went wrong</h1>
+      <h1 className="text-xl font-medium">Something went wrong</h1>
       <p className="max-w-sm text-sm text-muted">
         We couldn&apos;t load this page. Your saved time is safe. Check your connection and try again.
       </p>
       <button
         type="button"
         onClick={() => retry()}
-        className="rounded-lg bg-accent px-4 py-2 font-medium text-accent-foreground hover:opacity-90"
+        className="rounded-full bg-accent px-4 py-2 font-medium text-accent-foreground hover:opacity-90"
       >
         Try again
       </button>
