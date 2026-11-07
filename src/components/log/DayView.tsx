@@ -6,6 +6,7 @@ import { useTimer } from "@/components/timer/TimerProvider";
 import { listEntries, type LogEntry } from "@/lib/entries/actions";
 import { dayLabel, dayRange, formatHoursMinutes, isDayString, shiftDay, todayString } from "@/lib/time";
 import type { Category } from "@/lib/types";
+import { DayTimeline } from "./DayTimeline";
 import { EntryForm } from "./EntryForm";
 import { EntryRow } from "./EntryRow";
 
@@ -16,7 +17,7 @@ const noopSubscribe = () => () => {};
 const navButton =
   "rounded-lg border border-border px-3 py-1.5 text-sm font-medium hover:bg-background disabled:opacity-40";
 
-/** One day's time log, with date navigation. The day timeline joins it in milestone 6. */
+/** One day: color-coded timeline, category totals, and the editable time log. */
 export function DayView({ categories }: { categories: CategoryOption[] }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -116,6 +117,19 @@ export function DayView({ categories }: { categories: CategoryOption[] }) {
           )}
         </nav>
       </div>
+
+      <section aria-labelledby="timeline-heading" className="flex flex-col gap-3">
+        <h2 id="timeline-heading" className="sr-only">
+          Day timeline
+        </h2>
+        {loading && !data ? (
+          <div className="h-96 animate-pulse rounded-xl border border-border bg-surface" aria-hidden />
+        ) : (
+          <div className={loading ? "opacity-60" : ""}>
+            <DayTimeline day={day} entries={entries} />
+          </div>
+        )}
+      </section>
 
       <section aria-labelledby="log-heading" className="flex flex-col gap-3">
         <div className="flex items-center justify-between">

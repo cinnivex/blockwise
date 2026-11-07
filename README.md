@@ -15,7 +15,7 @@ Built with Next.js (App Router, TypeScript, Tailwind CSS) and Supabase (Postgres
 | 3. Categories | Done |
 | 4. Timer | Done |
 | 5. Time log | Done |
-| 6. Day timeline | Not started |
+| 6. Day timeline | Done |
 | 7. Polish and test | Not started |
 
 ## Local setup
@@ -63,7 +63,7 @@ src/
     (app)/                Logged-in pages, protected by src/proxy.ts
       dashboard/          Timer: stopwatch, countdown, pause/resume
       categories/         Create, edit, archive categories
-      timeline/           Day view: time log (add, edit, delete); timeline next
+      timeline/           Day view: color-coded timeline, category totals, time log
   components/             Shared UI
   lib/
     supabase/             Browser, server and proxy Supabase clients
